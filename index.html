@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>NikiGSquaredBook</title>
+</head>
+<body>
+    <header>
+        <h1>
+            Welcome to the NikiGSquared Forum!
+        </h1>
+    </header>
+
+    <div id="feed-container">
+        <!-- hold the feed -->
+    </div>
+    
+    <div id="sort-buttons-container">
+        <button id="sort-by-newest">Newest</button>
+        <button id="sort-by-likes">Most Liked</button>
+    </div>
+
+    <div id="post-form-container">
+        <form id="post-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="content">What's on your mind?</label>
+            <textarea id="content" name="content" required></textarea>
+            <button type="submit">Create Post</button>
+        </form>
+    </div>
+
+    
+
+    <div id="user-posts-container">
+        <!-- hold the posts by a specific user -->
+    </div>
+
+    <div id="user-posts-form-container">
+        <form id="user-posts-form">
+            <label for="user-posts-username">Find posts by user</label>
+            <div class="user-search-controls">
+                <input type="text" id="user-posts-username" name="user-posts-username" placeholder="Enter a username or @handle" required>
+                <button type="submit">Search posts</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="like-buttons-container">
+        <!-- hold the like buttons for posts -->
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

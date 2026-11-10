@@ -1,0 +1,429 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,900;1,600;1,900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+/* Main background fill */
+
+body {
+  background-color: #F0E3F8; /* Light Lilac Background */
+}
+
+/* Header layout section */
+
+header {
+  text-align: center;
+  padding: 48px 24px 32px 24px;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Header styling */
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  background: #ADEBB3; 
+  filter: blur(50px); 
+  opacity: 0.35;
+  z-index: -1;
+}
+
+/* H1 styling */
+header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.85rem; 
+  font-weight: 900;
+  font-style: italic; 
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin: 0;
+  
+  /* Color Effect */
+  background: linear-gradient(
+    135deg, 
+    #5B3A6E 0%,    
+    #5B3A6E 45%,   
+    #D9ACF5 75%,   
+    #5B3A6E 100%   
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* Clips the background directly to the text letters */
+  
+  /* moving sheen texture */
+  animation: shine 6s ease infinite;
+}
+
+/* Stars under H1 */
+header::after {
+  content: "✦ ✦ ✦"; 
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: #D9ACF5; 
+  display: block;
+  margin-top: 16px;
+  opacity: 0.8;
+}
+
+/* Smooth ambient sheen animation keyframe for the gradient text- googled how to do this */
+@keyframes shine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Scaling limits */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 2rem; 
+  }
+}
+
+/* The main container card */
+
+.post-card {
+  background-color: #F7E6CA; 
+  border: 1px solid #D9ACF5; 
+  border-radius: 16px; 
+  padding: 20px;
+  max-width: 500px;
+  margin: 16px auto;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-shadow: 0 8px 24px rgba(91, 58, 110, 0.06); 
+}
+
+/* Flexbox layout for header elements */
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline; 
+  margin-bottom: 14px;
+  border-bottom: 1px dashed rgba(217, 172, 245, 0.6); 
+  padding-bottom: 8px;
+}
+
+/* User Card styling*/
+.post-user {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-style: italic; 
+  font-size: 1.15rem;
+  color: #5B3A6E; 
+  letter-spacing: -0.3px;
+}
+
+/* Timestamp styling */
+.post-time {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+  color: #5B3A6E; 
+  opacity: 0.7;
+}
+
+/* Text of the post */
+.post-content {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.6; 
+  color: #5B3A6E; 
+  word-wrap: break-word;
+  margin-bottom: 16px;
+}
+
+/* Divider line above the button */
+.post-footer {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 12px;
+}
+
+/* Like button */
+
+.like-action-btn {
+  background: none;
+  border: 1px solid transparent;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #5B3A6E; 
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  padding: 8px 16px;
+  border-radius: 30px; 
+  transition: all 0.25s ease;
+}
+
+/* Hovering over the like buttons */
+
+.like-action-btn:hover {
+  background-color: #ADEBB3; 
+  transform: translateY(-1px); 
+}
+
+/* Styling when like button clicked */
+
+.like-action-btn.liked {
+  background-color: #D9ACF5; 
+  color: #5B3A6E;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(219, 172, 245, 0.4); 
+}
+
+/* Sort Buttons styling */
+#sort-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px; 
+  margin: 24px auto 8px auto;
+  max-width: 500px;
+  padding: 0 4px;
+}
+
+
+#sort-buttons-container button {
+  background-color: transparent;
+  border: 1px solid #D9ACF5; 
+  color: #5B3A6E; 
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 8px 18px;
+  border-radius: 30px; 
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Hover over sort buttons */
+#sort-buttons-container button:hover {
+  background-color: #ADEBB3; 
+  border-color: transparent;
+  color: #5B3A6E;
+  transform: translateY(-1px); 
+  box-shadow: 0 4px 12px rgba(173, 235, 179, 0.3); 
+}
+
+/* Selected button look */
+#sort-buttons-container button.active,
+#sort-buttons-container button:active {
+  background-color: #D9ACF5; 
+  border-color: transparent;
+  color: #5B3A6E;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(219, 172, 245, 0.4); 
+}
+
+/* Container for the form layout */
+#post-form-container {
+  background-color: #F7E6CA; 
+  border: 1px solid #D9ACF5; 
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 500px;
+  margin: 24px auto;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: 0 8px 24px rgba(91, 58, 110, 0.06); 
+}
+
+/* Form structure and styling */
+#post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; 
+}
+
+
+#post-form label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #5B3A6E; 
+  margin-bottom: -6px; 
+}
+
+/* textarea styling */
+#post-form input[type="text"],
+#post-form textarea {
+  background-color: rgba(255, 255, 255, 0.6); 
+  border: 1px solid #D9ACF5; 
+  border-radius: 8px;
+  padding: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #5B3A6E; 
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+
+#post-form textarea {
+  min-height: 100px;
+  resize: vertical; 
+}
+
+/* Form active input focus ring style details */
+#post-form input[type="text"]:focus, /* :focus--> This is a pseudo-class. It triggers a state change. The styles defined inside this block will only activate when the user brings focus to the input field—either by clicking inside it with a mouse, tapping it on a touchscreen, or tabbing to it using a keyboard */
+#post-form textarea:focus {
+  background-color: #ffffff;
+  border-color: #5B3A6E;
+  box-shadow: 0 0 0 3px rgba(217, 172, 245, 0.3);
+}
+
+/* Submit button styling */
+#post-form button[type="submit"] {
+  background-color: transparent;
+  border: 1px solid #D9ACF5;
+  color: #5B3A6E;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  align-self: flex-end; 
+  transition: all 0.25s ease;
+}
+
+#post-form button[type="submit"]:hover {
+  background-color: #ADEBB3;
+  border-color: transparent;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(173, 235, 179, 0.4);
+}
+
+#post-form button[type="submit"]:active {
+  background-color: #D9ACF5;
+  box-shadow: 0 4px 10px rgba(219, 172, 245, 0.4);
+  transform: translateY(0px);
+}
+
+/* User post search */
+#user-posts-form-container,
+#user-posts-container {
+  max-width: 500px;
+  margin: 24px auto;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+#user-posts-form-container {
+  background-color: #F7E6CA;
+  border: 1px solid #D9ACF5;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(91, 58, 110, 0.06);
+}
+
+#user-posts-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#user-posts-form label {
+  color: #5B3A6E;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.user-search-controls {
+  display: flex;
+  gap: 10px;
+}
+
+#user-posts-form input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid #D9ACF5;
+  border-radius: 8px;
+  padding: 12px;
+  color: #5B3A6E;
+  font: 0.9rem 'Plus Jakarta Sans', sans-serif;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+#user-posts-form input[type="text"]:focus {
+  background-color: #fff;
+  border-color: #5B3A6E;
+  box-shadow: 0 0 0 3px rgba(217, 172, 245, 0.3);
+}
+
+#user-posts-form button[type="submit"] {
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid #D9ACF5;
+  border-radius: 30px;
+  padding: 10px 16px;
+  color: #5B3A6E;
+  font: 700 0.72rem 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+#user-posts-form button[type="submit"]:hover {
+  background-color: #ADEBB3;
+  border-color: transparent;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(173, 235, 179, 0.4);
+}
+
+.user-search-header {
+  margin: 28px 0 12px;
+  color: #5B3A6E;
+  font: italic 700 1.35rem 'Playfair Display', Georgia, serif;
+  text-align: center;
+}
+
+.empty-msg {
+  max-width: 500px;
+  margin: 16px auto;
+  padding: 20px;
+  border: 1px dashed #D9ACF5;
+  border-radius: 12px;
+  color: #5B3A6E;
+  font: 0.9rem/1.6 'Plus Jakarta Sans', sans-serif;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  #user-posts-form-container,
+  #user-posts-container {
+    margin-right: 16px;
+    margin-left: 16px;
+  }
+
+  .user-search-controls {
+    flex-direction: column;
+  }
+
+  #user-posts-form button[type="submit"] {
+    align-self: flex-end;
+  }
+}
